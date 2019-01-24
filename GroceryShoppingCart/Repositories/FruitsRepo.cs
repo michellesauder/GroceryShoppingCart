@@ -14,7 +14,7 @@ namespace GroceryShoppingCart.Repositories
         new Fruits { FruitId = 2, Description = "Bananas", Price = 2.00d }
     };
 
-        public List<Fruits> ProductList()
+        public List<Fruits> FruitsList()
         {
             return fruits;
         }

@@ -20,9 +20,7 @@ namespace GroceryShoppingCart.Controllers
 
         public IActionResult Index()
         {
-           /* var fruits = FruitsRepo.FruitsList();*/
-
-
+            //var fruits = FruitsRepo.FruitsList();
 
             return View(db.Fruits);
         }

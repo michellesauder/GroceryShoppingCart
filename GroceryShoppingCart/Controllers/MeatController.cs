@@ -19,6 +19,8 @@ namespace GroceryShoppingCart.Controllers
 
         public IActionResult Index()
         {
+            //var meat = MeatRepo.MeatList();
+
             return View(db.Meat);
         }
     }

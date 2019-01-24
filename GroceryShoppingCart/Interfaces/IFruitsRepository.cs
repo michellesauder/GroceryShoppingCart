@@ -1,4 +1,5 @@
 ﻿using GroceryShoppingCart.Models;
+using GroceryShoppingCart.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace GroceryShoppingCart.Interfaces
     public class IFruitsRepository
     {
         //still need to download the different additions 
-        //List<Fruits> FruitsList();
+        //List<FruitsRepo> FruitsList();
 
 
     }
