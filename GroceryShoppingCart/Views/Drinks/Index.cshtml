@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<GroceryShoppingCart.Models.Drinks>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Drinks";
 }
 
 @if (ViewData["CurrentSort"].ToString() == "title_asc")
@@ -40,36 +40,38 @@ else
 </form>
 
 
-
 <table class="table">
     <thead>
         <tr>
 
             <th><a asp-action="Index" class="glyphicon glyphicon-refresh"></a></th>
-            @*<th><a asp-action="Index" asp-route-sortOrder=@ViewData["SortTitle"]>Description</a></th>*@
+
+            <th><a asp-action="Index" asp-route-sortOrder=@ViewData["SortTitle"]>Add/Delete/Modify</a></th>
+            <th> </th>
             <th><a asp-action="Index" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-sortOrder=@ViewData["SortDescription"]> Description</a></th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Description)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @*<a asp-action="Edit" asp-route-id="@item.DrinkId">Edit</a>*@ |
-                    @*// <a asp-action="Details" asp-route-id="@item.DrinkId">Details</a> |*@
-                    @*<a asp-action="Delete" asp-route-id="@item.DrinkId">Delete</a>*@
-                    @*<td><a asp-action="Details" asp-route-id=@item.DrinkId>@item.DrinkId</a>*@
-                </td>
-                <td>@item.Description</td>
+        <tr>
+            <td> </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DrinkId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.DrinkId">Delete</a>
+            <td>
+                <a asp-action="Drinks" asp-route-id=@item.DrinkId>@item.DrinkId</a>
+            </td>
+            <td>@item.Description</td>
 
-            </tr>
+        </tr>
         }
     </tbody>
 </table>
