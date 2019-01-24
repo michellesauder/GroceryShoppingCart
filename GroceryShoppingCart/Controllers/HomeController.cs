@@ -74,7 +74,7 @@ namespace GroceryShoppingCart.Controllers
             CookieHelper cookieHelper = new CookieHelper(_httpContextAccessor, Request,
                                                          Response);
             cookieHelper.Set("firstName", siteUser.firstName, 1);
-            // Redirect to GET method so cookie is read.
+            // Redirect GET method so cookie is read.
             return RedirectToAction("Index", "Home");
         }
 
