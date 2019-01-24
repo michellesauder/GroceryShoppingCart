@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GroceryShoppingCart.Models.Drinks>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (ViewData["CurrentSort"].ToString() == "title_asc")
+{
+    ViewData["SortTitle"] = "title_desc";
+    ViewData["SortDescription"] = "description_asc";
+}
+else if (ViewData["CurrentSort"].ToString() == "description_asc")
+{
+    ViewData["SortDescription"] = "description_desc";
+    ViewData["SortTitle"] = "title_asc";
+}
+else
+{
+    //it's either title_desc or description_desc
+    ViewData["SortTitle"] = "title_asc";
+    ViewData["SortDescription"] = "description_asc";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search:
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]"
+                   placeholder="Drink Type..." />
+            <input type="submit" value="Search" class="btn btn-default" />
+        </p>
+    </div>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th><a asp-action="Index" class="glyphicon glyphicon-refresh"></a></th>
+            @*<th><a asp-action="Index" asp-route-sortOrder=@ViewData["SortTitle"]>Description</a></th>*@
+            <th><a asp-action="Index" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-sortOrder=@ViewData["SortDescription"]> Description</a></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.DrinkId">Edit</a>*@ |
+                    @*// <a asp-action="Details" asp-route-id="@item.DrinkId">Details</a> |*@
+                    @*<a asp-action="Delete" asp-route-id="@item.DrinkId">Delete</a>*@
+                    @*<td><a asp-action="Details" asp-route-id=@item.DrinkId>@item.DrinkId</a>*@
+                </td>
+                <td>@item.Description</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
