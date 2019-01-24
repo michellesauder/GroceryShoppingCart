@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GroceryShoppingCart.Interfaces;
 using GroceryShoppingCart.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +44,7 @@ namespace GroceryShoppingCart
             });
 
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddScoped<IFruitsRepository, Repositories.FruitsRepo>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

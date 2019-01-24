@@ -27,13 +27,21 @@ namespace GroceryShoppingCart.Controllers
 
 
         // Initialize context when controller is created.
-        public HomeController(GroceryCartContext db, IHttpContextAccessor httpContextAccessor, IOptions<EmailSettings> _emailSettings, IFruitsRepository fruitsRepo)
+        public HomeController(GroceryCartContext db, IHttpContextAccessor httpContextAccessor, IOptions<EmailSettings> _emailSettings)
         {
             this.db = db;
             Seeder seeder = new Seeder(db);
             this._httpContextAccessor = httpContextAccessor;
             this._emailSettings = _emailSettings.Value;
+        }
+
+
+        //second controller
+
+        public HomeController(IFruitsRepository fruitsRepo)
+        {
             _fruitsRepo = fruitsRepo;
+
         }
 
 
