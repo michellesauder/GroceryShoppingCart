@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using GroceryShoppingCart.Services;
 using GroceryShoppingCart.ViewModels;
 using Microsoft.Extensions.Options;
+using GroceryShoppingCart.Interfaces;
+using GroceryShoppingCart.Repositories;
 
 namespace GroceryShoppingCart.Controllers
 {
@@ -18,18 +20,20 @@ namespace GroceryShoppingCart.Controllers
         private GroceryCartContext db;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private EmailSettings _emailSettings;
+        private IFruitsRepository _fruitsRepo;
 
         const string SOME_SESSION_DATA = "Session Information";
         const string MORE_SESSION_DATA = "Session Date";
 
 
         // Initialize context when controller is created.
-        public HomeController(GroceryCartContext db, IHttpContextAccessor httpContextAccessor, IOptions<EmailSettings> _emailSettings)
+        public HomeController(GroceryCartContext db, IHttpContextAccessor httpContextAccessor, IOptions<EmailSettings> _emailSettings, IFruitsRepository fruitsRepo)
         {
             this.db = db;
             Seeder seeder = new Seeder(db);
             this._httpContextAccessor = httpContextAccessor;
             this._emailSettings = _emailSettings.Value;
+            _fruitsRepo = fruitsRepo;
         }
 
 
