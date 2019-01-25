@@ -9,14 +9,15 @@ namespace GroceryShoppingCart.Repositories
 {
     public class MeatRepo : IMeatRepository
     {
-        private static List<Meat> meat = new List<Meat> {
-        new Meat { MeatId = 1, Description = "Lamb",  Price = 1.50d },
-        new Meat { MeatId = 2, Description = "Cod", Price = 2.00d }
-    };
-
-        public List<Meat> MeatList()
+        private GroceryCartContext db;
+        public MeatRepo(GroceryCartContext db)
         {
-            return meat;
+            this.db = db;
+        }
+
+        public List<Meat> FruitsList()
+        {
+            return db.Meat.ToList();
         }
     }
 }
