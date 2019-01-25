@@ -1,0 +1,7 @@
+{
+
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=DESKTOP-UESI286\\SQLEXPRESS;Database=GroceryCart;Trusted_Connection=True;"
+  }
+
+}

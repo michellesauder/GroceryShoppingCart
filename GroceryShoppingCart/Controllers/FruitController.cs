@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GroceryShoppingCart.Interfaces;
 using GroceryShoppingCart.Models;
 using GroceryShoppingCart.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -12,17 +13,20 @@ namespace GroceryShoppingCart.Controllers
     {
 
         private GroceryCartContext db;
-        public FruitController(GroceryCartContext db)
+        private IFruitsRepository _fruitRepo;
+
+        public FruitController(GroceryCartContext db, IFruitsRepository fruitRepo)
         {
             this.db = db;
+            _fruitRepo = fruitRepo;
         }
 
 
         public IActionResult Index()
         {
-            //var fruits = FruitsRepo.FruitsList();
+            var fruits = _fruitRepo.FruitsList();
 
-            return View(db.Fruits);
+            return View(fruits);
         }
     }
 }

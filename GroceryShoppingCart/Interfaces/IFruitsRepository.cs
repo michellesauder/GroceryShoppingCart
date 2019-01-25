@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace GroceryShoppingCart.Interfaces
 {
-    public class IFruitsRepository
+    public interface IFruitsRepository
     {
-        //still need to download the different additions 
-        //List<FruitsRepo> FruitsList();
-
-
+        List<Fruits> FruitsList();
     }
 }

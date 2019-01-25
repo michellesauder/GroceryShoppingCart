@@ -25,7 +25,6 @@ namespace GroceryShoppingCart.Repositories
             {
                 drinkSearchSort = db.Drinks.Select(d => new Drinks
                 {
-                    //DrinkId = d.GroceryCart.Select(di => di.DrinkId),
                     Description = d.Description,
                 })
                     .Where(d => d.Description.Contains(searchString));
@@ -38,14 +37,6 @@ namespace GroceryShoppingCart.Repositories
 
                 });
             }
-
-
-            //var DrinkSort =
-            //db.Drinks.Select(d => new Drinks
-            //{
-            //    Description = d.Description
-            //}
-            //);
 
             switch (sortOrder)
             {
@@ -67,10 +58,6 @@ namespace GroceryShoppingCart.Repositories
                     break;
             };
             return drinkSearchSort;
-
-
-
-
         }
     }
 }
