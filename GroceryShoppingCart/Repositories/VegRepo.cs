@@ -7,19 +7,17 @@ using System.Threading.Tasks;
 
 namespace GroceryShoppingCart.Repositories
 {
-    public class FruitsRepo : IFruitsRepository
+    public class VegRepo : IVegRepository
     {
         private GroceryCartContext db;
-        public FruitsRepo(GroceryCartContext db)
+        public VegRepo(GroceryCartContext db)
         {
             this.db = db;
         }
 
-        public List<Fruits> FruitsList()
+        public List<Vegetables> VegList()
         {
-            return db.Fruits.ToList();
+            return db.Vegetables.ToList();
         }
-
-
     }
 }

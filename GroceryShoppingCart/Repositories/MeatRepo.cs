@@ -15,7 +15,7 @@ namespace GroceryShoppingCart.Repositories
             this.db = db;
         }
 
-        public List<Meat> FruitsList()
+        public List<Meat> MeatList()
         {
             return db.Meat.ToList();
         }
