@@ -7,6 +7,7 @@ namespace GroceryShoppingCart.Models
 {
     public class EmailSettings
     {
+
         public string Domain { get; set; }
 
         public int Port { get; set; }
@@ -18,6 +19,5 @@ namespace GroceryShoppingCart.Models
         public string FromEmail { get; set; }
 
         public string ToEmail { get; set; }
-
     }
 }

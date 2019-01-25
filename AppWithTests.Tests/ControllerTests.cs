@@ -31,10 +31,10 @@ namespace AppWithTests.Tests
             var mockFruitsRepo = new Mock<GroceryShoppingCart.Interfaces.IFruitsRepository>();
 
             // 2. Set up return data for ProductList() method.
-            mockFruitsRepo.Setup(mpr => mpr.FruitsList())
-                .Returns(new List<Fruits>{
-                    new Fruits(), new Fruits(), new Fruits()
-                });
+            //mockFruitsRepo.Setup(mpr => mpr.FruitsList())
+            //    .Returns(new List<Fruits>{
+            //        new Fruits(), new Fruits(), new Fruits()
+            //    });
 
             // 3. Define controller instance with mock repository instance.
             var controller = new HomeController(mockFruitsRepo.Object);

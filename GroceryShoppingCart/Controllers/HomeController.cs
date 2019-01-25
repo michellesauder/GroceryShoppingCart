@@ -38,11 +38,11 @@ namespace GroceryShoppingCart.Controllers
 
         //second controller
 
-        public HomeController(IFruitsRepository fruitsRepo)
-        {
-            _fruitsRepo = fruitsRepo;
+        //public HomeController(IFruitsRepository fruitsRepo)
+        //{
+        //    _fruitsRepo = fruitsRepo;
 
-        }
+        //}
 
         //Third Controller
 
