@@ -2,6 +2,33 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="row">
+    <div class="col-md-4">
+        <hr />
+
+        Please Insert Your Name:
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="firstName" class="form-control" />
+            <span asp-validation-for="firstName" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+
+        <hr />
+        @if (ViewBag.UserName != null)
+        {
+            @Html.Raw("<h1>Welcome " + ViewBag.UserName + "</h1>");
+        }
+
+    </div>
+</div>
+
+@Html.ActionLink("Clear",                 // Text
+                    "ClearCookie",        // Method
+                    "Home", new { key = "firstName" })
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -68,28 +95,9 @@
 
 <hr />
 
-@if (ViewBag.UserName != null)
-{
-    @Html.Raw("<h1>Welcome " + ViewBag.UserName + "</h1>");
-}
 
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="firstName" class="form-control" />
-            <span asp-validation-for="firstName" class="text-danger"></span>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
 
-@Html.ActionLink("Clear",                 // Text
-                    "ClearCookie",        // Method
-                    "Home", new { key = "firstName" })
 
 
 <div>
